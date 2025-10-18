@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Bristol Finance & Consortium Int. Ltd.</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #003366;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --light-blue: #E6F2FF;
+            --dark-blue: #002244;
+            --light-gold: #F5E8C8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            color: var(--blue);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--blue);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            color: var(--gold);
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        nav ul li a.active {
+            color: var(--gold);
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--gold);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .about-hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.9)), url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .about-hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .about-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--blue);
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            background-color: #e6c34c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 5rem 0;
+            background-color: var(--light-blue);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--blue);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--blue);
+        }
+        
+        .about-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .about-features li {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .about-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Values Section */
+        .values {
+            padding: 5rem 0;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .value-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--gold);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .value-card h3 {
+            color: var(--blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .value-card p {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 5rem 0;
+            background-color: var(--light-blue);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background-color: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--blue);
+        }
+        
+        .team-member h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--blue);
+        }
+        
+        .team-member .position {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* Stats Section */
+        .stats {
+            padding: 5rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--blue);
+            font-weight: 600;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 5rem 0;
+            background-color: var(--light-blue);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--blue);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .faq-question:hover {
+            background-color: var(--light-gold);
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 5rem 0;
+            text-align: center;
+            background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.9)), url('https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo h2 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--gold);
+            color: var(--blue);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .values-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-landmark logo-icon"></i>
+                    <h1>Bristol <span>Finance</span></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="instruments.html">Instruments</a></li>
+                        <li><a href="monetizing.html">Monetizing</a></li>
+                        <li><a href="consultancy.html">Consultancy</a></li>
+                        <li><a href="assets.html">Asset-Based</a></li>
+                        <li><a href="aboutus.html" class="active">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h2>About Bristol Finance & Consortium Int. Ltd</h2>
+            <p>Your trusted partner in global trade finance with over a decade of expertise in banking instruments and asset monetization</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Story</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Leading Trade Finance Solutions Since 2015</h3>
+                    <p>Bristol Finance & Consortium Int. Ltd. was established with a vision to revolutionize international trade finance by providing innovative solutions for businesses and financial institutions worldwide. With our global presence spanning North America and Africa, we bridge markets and create opportunities.</p>
+                    <p>Our expertise spans across standby letters of credit, bank guarantees, documentary credits, and comprehensive asset monetization services. We pride ourselves on delivering tailored financial solutions that address the unique challenges of international trade.</p>
+                    <ul class="about-features">
+                        <li>Global network of financial institutions</li>
+                        <li>Expertise in complex trade finance structures</li>
+                        <li>Innovative asset monetization solutions</li>
+                        <li>Regulatory compliance across multiple jurisdictions</li>
+                        <li>Client-focused approach with personalized service</li>
+                        <li>Proven track record of successful transactions</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Contact Us Now</a>
+                </div>
+                <div class="about-image">
+                    <img src="images/caroseladv.jpg" alt="About Bristol Finance">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Values</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-shield-alt value-icon"></i>
+                    <h3>Integrity</h3>
+                    <p>We maintain the highest ethical standards in all our transactions, ensuring transparency and trust with our clients and partners.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-lightbulb value-icon"></i>
+                    <h3>Innovation</h3>
+                    <p>We continuously develop creative financial solutions to address the evolving challenges of global trade and finance.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-handshake value-icon"></i>
+                    <h3>Partnership</h3>
+                    <p>We build long-term relationships with our clients, working collaboratively to achieve their financial objectives.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-globe value-icon"></i>
+                    <h3>Global Perspective</h3>
+                    <p>With operations across continents, we bring international expertise and cross-border solutions to our clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Impact</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Clients Served</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">$2B+</div>
+                    <div class="stat-label">Transactions Facilitated</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Leadership Team</h2>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">
+                         <!-- <i class="fas fa-user-tie"></i> -->
+                          <img src="images/dennispassport.jpg" style="width: 200%;  height:150% " alt="">
+                    </div>
+                    <h4>Dennis Otoo-Addo</h4>
+                    <p class="position">Founder & CEO</p>
+                    <p>20+ years in international banking and trade finance with expertise in structured commodity finance.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <!-- <i class="fas fa-user-tie"></i> -->
+                          <img src="images/kwabee.jpg" style="width: 100%;  height:100% " alt="">
+                    </div>
+                    <h4>Benjamin Otoo-Addo</h4>
+                    <p class="position">Chief Operations Officer</p>
+                    <p>15+ years experience in financial operations and risk management across multiple jurisdictions.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                       <!-- <i class="fas fa-user-tie"></i> -->
+                        <img src="images/rose.jpg" style="width: 200%;  height:120% " alt="">
+                    </div>
+                    <h4>Rosemund Amoyaw</h4>
+                    <p class="position">Director of Trade Finance</p>
+                    <p>Specializes in letters of credit and bank guarantees with deep knowledge of UCP 600 regulations.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                       <!-- <i class="fas fa-user-tie"></i> -->
+                        <img src="images/therese.jpg" style="width: 200%;  height:120% " alt="">
+                    </div>
+                    <h4>Theresa Effeh</h4>
+                    <p class="position">Head of Asset Monetization</p>
+                    <p>Expert in asset-based lending and innovative monetization strategies for various asset classes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What types of banking instruments do you specialize in?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        We specialize in a comprehensive range of banking instruments including Standby Letters of Credit (SBLC), Bank Guarantees, Letters of Credit, Documentary Credits, International Bills of Exchange, and various asset-backed instruments. Our expertise covers both issuance and monetization of these instruments.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How long does it typically take to process a banking instrument?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Processing times vary depending on the instrument type and complexity. Standard Letters of Credit typically take 3-5 business days, while more complex instruments like SBLCs may take 5-10 business days. We prioritize efficiency while ensuring all regulatory requirements are met.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can you help monetize assets without selling them?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Absolutely. We specialize in asset monetization strategies that allow you to maintain ownership while accessing liquidity. Our solutions include asset-backed lending, leasing arrangements, and structured finance products that use your assets as collateral without requiring sale.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What geographical regions do you serve?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        We serve clients globally with physical presence in Canada and Ghana, and operational reach across North America, Europe, Africa, and Asia. Our international network allows us to facilitate cross-border transactions efficiently while navigating different regulatory environments.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is your minimum transaction size?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        We work with a wide range of transaction sizes. For banking instruments, our minimum typically starts at $100,000, while asset monetization projects can vary based on asset type and value. We recommend contacting us directly to discuss your specific requirements.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do you ensure the security and confidentiality of transactions?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Security and confidentiality are paramount. We employ bank-grade encryption for all communications, conduct thorough due diligence on all parties, and maintain strict confidentiality agreements. Our processes comply with international financial regulations and anti-money laundering requirements.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you provide consultancy services for trade finance structuring?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, we offer comprehensive consultancy services including trade finance structuring, risk assessment, instrument selection, and regulatory compliance. Our experts work with you to develop optimal financial strategies tailored to your specific business needs and market conditions.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What makes Bristol Finance different from other trade finance providers?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Our differentiation lies in our global perspective, innovative solutions, and client-centric approach. We combine deep technical expertise with creative financial structuring, offer both traditional and asset-based solutions, and maintain long-term partnerships rather than transactional relationships. Our dual-continent presence also gives us unique insights into emerging market opportunities.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Work With Us?</h2>
+            <p>Contact our team today to discuss how we can help with your trade finance needs and discover the Bristol Finance advantage.</p>
+            <a href="contact.html" class="btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Bristol Finance & Consortium Int. Ltd.</h2>
+                    <p>Your trusted partner in global trade finance solutions.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="services.html">Services</a>
+                    <a href="instruments.html">Instruments</a>
+                    <a href="monetizing.html">Monetizing</a>
+                    <a href="consultancy.html">Consultancy</a>
+                    <a href="asset-based.html">Asset-Based</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <a href="mailto:bristfin.consint@ghca.xyz">Email Us</a>
+                    <a href="https://wa.me/14379079615">WhatsApp</a>
+                    <p>Canada: 419-1475 Bristol Road West, Mississauga</p>
+                    <p>Ghana: GA-585-7449, Sorghum Street, Dansoman</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/bristol-finance-consortium-international-64889a214?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/BristolTrades?t=KxiVKNXPaQYU75Gx4ayygA&s=09"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/share/1JR6Hg9kQy/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/bristol_financeint?igsh=eHB5dGU5Y2pwbWIy"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@bristol.finance?_t=ZM-90WPmrqPecC&_r=1"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/14379079615"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Bristol Finance & Consortium Int. Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Open first FAQ item by default
+            if (faqItems.length > 0) {
+                faqItems[0].classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

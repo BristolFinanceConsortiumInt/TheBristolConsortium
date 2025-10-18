@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bristol Finance & Consortium Int. Ltd. | Trade Finance Specialists</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+     <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9QD81DT2W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J9QD81DT2W');
+    </script>
+    
+    <style>
+        :root {
+            --blue: #003366;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --light-blue: #E6F2FF;
+            --dark-blue: #002244;
+            --light-gold: #F5E8C8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            color: var(--blue);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--blue);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            color: var(--gold);
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Carousel Section */
+        .hero-carousel {
+            position: relative;
+            height: 80vh;
+            min-height: 600px;
+            overflow: hidden;
+        }
+        
+        .carousel-slides {
+            width: 500%;
+            height: 100%;
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+            animation: slide 25s infinite;
+        }
+        
+        .carousel-slide {
+            width: 20%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .slide-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            background: rgba(0, 51, 102, 0.7);
+            padding: 0 2rem;
+        }
+        
+        .slide-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .slide-content p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--blue);
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e6c34c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Carousel Animation */
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(0); }
+            25% { transform: translateX(-20%); }
+            45% { transform: translateX(-20%); }
+            50% { transform: translateX(-40%); }
+            70% { transform: translateX(-40%); }
+            75% { transform: translateX(-60%); }
+            95% { transform: translateX(-60%); }
+            100% { transform: translateX(-80%); }
+        }
+        
+        /* Carousel Indicators */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 10;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .indicator:hover {
+            background-color: var(--white);
+        }
+        
+        /* Lead Form Section */
+        .lead-form-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+        }
+        
+        .lead-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .lead-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+        
+        .lead-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .lead-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .lead-features li {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .lead-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .lead-form {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            color: var(--blue);
+        }
+        
+        .lead-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: var(--blue);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--blue);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+        
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background-color: var(--light-blue);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--blue);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card h3 {
+            color: var(--blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .service-card p {
+            margin-bottom: 1rem;
+        }
+        
+        /* Instruments Section */
+        .instruments {
+            padding: 5rem 0;
+        }
+        
+        .instruments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .instrument-item {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            transition: all 0.3s;
+            background-color: var(--white);
+        }
+        
+        .instrument-item:hover {
+            border-color: var(--gold);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+            transform: scale(1.03);
+        }
+        
+        .instrument-icon {
+            font-size: 2.5rem;
+            color: var(--blue);
+            margin-bottom: 1rem;
+        }
+        
+        .instrument-item h3 {
+            color: var(--blue);
+            margin-bottom: 1rem;
+        }
+        
+        /* Monetizing Section */
+        .monetizing {
+            padding: 5rem 0;
+            background-color: var(--light-blue);
+        }
+        
+        .monetizing-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .monetizing-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--blue);
+        }
+        
+        .monetizing-list {
+            list-style: none;
+        }
+        
+        .monetizing-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .monetizing-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .monetizing-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .monetizing-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .monetizing-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Consultancy Section */
+        .consultancy {
+            padding: 5rem 0;
+        }
+        
+        .consultancy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .consultancy-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--blue);
+        }
+        
+        .consultancy-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .consultancy-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .consultancy-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Social Media Section */
+        .social-media {
+            padding: 4rem 0;
+            background-color: var(--light-blue);
+            text-align: center;
+        }
+        
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .social-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .social-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .social-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .linkedin { color: #0077b5; }
+        .facebook { color: #3b5998; }
+        .twitter { color: #1da1f2; }
+        .instagram { 
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tiktok { color: #000000; }
+        .whatsapp { color: #25d366; }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background-color: var(--blue);
+            color: var(--white);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--gold);
+            width: 20px;
+        }
+        
+        .contact-form {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            color: var(--blue);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        
+        .popup-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000 ;
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.popup-content{
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    position: relative;
+}
+
+.close-btn{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo h2 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--gold);
+            color: var(--blue);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .monetizing-content,
+            .consultancy-content,
+            .lead-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .slide-content h2 {
+                font-size: 2.5rem;
+            }
+            
+            .slide-content p {
+                font-size: 1.2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .services-grid,
+            .instruments-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-carousel {
+                height: 60vh;
+                min-height: 400px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-landmark logo-icon"></i>
+                    <h1>Bristol <span>Finance</span></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="instruments.html">Instruments</a></li>
+                        <li><a href="monetizing.html">Monetizing</a></li>
+                        <li><a href="consultancy.html">Consultancy</a></li>
+                        <li><a href="assets.html">Asset-Based</a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Carousel Section -->
+    <section class="hero-carousel">
+        <div class="carousel-slides">
+            <!-- Slide 1 -->
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="">
+                <div class="slide-content">
+                    <h2>Global Trade Finance Solutions</h2>
+                    <p>Specializing in standby letters of credit, bank guarantees, and comprehensive monetization services</p>
+                    <a href="#lead-form" class="btn">Get Started Today</a>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="">
+                <div class="slide-content">
+                    <h2>Expert Banking Instruments</h2>
+                    <p>From SBLCs to documentary credits, we provide secure financial instruments for international trade</p>
+                    <a href="#lead-form" class="btn">Get Expert Advice</a>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="">
+                <div class="slide-content">
+                    <h2>Asset Monetization Services</h2>
+                    <p>Unlock the value in your assets without selling them through our innovative monetization solutions</p>
+                    <a href="#lead-form" class="btn">Learn More</a>
+                </div>
+            </div>
+            
+            <!-- Slide 4 -->
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="" >
+                <div class="slide-content">
+                    <h2>Strategic Consultancy</h2>
+                    <p>Expert guidance on trade finance instruments, risk management, and market entry strategies</p>
+                    <a href="#lead-form" class="btn">Get Consultation</a>
+                </div>
+            </div>
+            
+            <!-- Slide 5 -->
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="">
+                <div class="slide-content">
+                    <h2>Global Reach, Local Expertise</h2>
+                    <p>With branches in Canada and Ghana, we connect markets and create opportunities worldwide</p>
+                    <a href="#lead-form" class="btn">Contact Our Team</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+        </div>
+    </section>
+
+    <!-- Lead Form Section -->
+    <section id="lead-form" class="lead-form-section">
+        <div class="container">
+            <div class="lead-container">
+                <div class="lead-content">
+                    <h2>Get Your Custom Trade Finance Solution</h2>
+                    <p>Complete the form to receive a personalized consultation and discover how our financial instruments can help your business grow.</p>
+                    <ul class="lead-features">
+                        <li>Expert assessment of your financial needs</li>
+                        <li>Customized instrument recommendations</li>
+                        <li>Competitive pricing and terms</li>
+                        <li>Fast processing and approval</li>
+                        <li>Global network of financial partners</li>
+                    </ul>
+                    <p><strong>Response within 24 hours</strong></p>
+                </div>
+                <div class="lead-form">
+                    <h3>Request Consultation</h3>
+
+                    <form id="checkoutForm" >
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        <div class="form-group">
+                            <label for="instrument">Interest Area</label>
+                            <select id="instrument" name="instrument" required>
+                                <option value="">Select an option</option>
+                                <option value="sblc">Standby Letters of Credit</option>
+                                <option value="guarantees">Bank Guarantees</option>
+                                <option value="letters">Letters of Credit</option>
+                                <option value="documentary">Documentary Credits</option>
+                                <option value="monetizing">Instrument Monetizing</option>
+                                <option value="consultancy">Consultancy Services</option>
+                                <option value="asset-based">Asset-Based Finance</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Approximate Transaction Size (USD)</label>
+                            <select id="amount" name="amount" required>
+                                <option value="">Select an option</option>
+                                <option value="100k-500k">$100,000 - $500,000</option>
+                                <option value="500k-1m">$500,000 - $1 Million</option>
+                                <option value="1m-5m">$1 Million - $5 Million</option>
+                                <option value="5m-10m">$5 Million - $10 Million</option>
+                                <option value="10m+">$10 Million+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Additional Information</label>
+                            <textarea id="message" name="message" placeholder="Please provide any additional details about your requirements..."></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-file-contract service-icon"></i>
+                    <h3>Standby Letters of Credit</h3>
+                    <p>We provide standby letters of credit (SBLC) as a guarantee of payment, ensuring your business transactions are secure and reliable.</p>
+                    <p>Our SBLC services cover performance bonds, bid bonds, and advance payment guarantees.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-handshake service-icon"></i>
+                    <h3>Bank Guarantees</h3>
+                    <p>Our bank guarantee services offer financial security for various business operations, including tender guarantees and payment guarantees.</p>
+                    <p>We facilitate both direct and indirect guarantees to meet your specific requirements.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-file-invoice-dollar service-icon"></i>
+                    <h3>Letters of Credit</h3>
+                    <p>We issue letters of credit (LC) to facilitate international trade, ensuring secure payment between importers and exporters.</p>
+                    <p>Our LC services include both sight and usance letters of credit.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-file-signature service-icon"></i>
+                    <h3>Documentary Credits</h3>
+                    <p>Our documentary credit services provide a secure payment mechanism in international trade, backed by comprehensive documentation handling.</p>
+                    <p>We ensure compliance with UCP 600 and other international standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instruments Section -->
+    <section id="instruments" class="instruments">
+        <div class="container">
+            <div class="section-title">
+                <h2>Banking Instruments</h2>
+            </div>
+            <div class="instruments-grid">
+                <div class="instrument-item">
+                    <i class="fas fa-shield-alt instrument-icon"></i>
+                    <h3>Standby Letters of Credit</h3>
+                    <p>Financial instruments serving as guarantees of payment.</p>
+                </div>
+                <div class="instrument-item">
+                    <i class="fas fa-award instrument-icon"></i>
+                    <h3>Bank Guarantees</h3>
+                    <p>Assurances from banks covering financial obligations.</p>
+                </div>
+                <div class="instrument-item">
+                    <i class="fas fa-file-invoice instrument-icon"></i>
+                    <h3>Letters of Credit</h3>
+                    <p>Payment mechanisms in international trade transactions.</p>
+                </div>
+                <div class="instrument-item">
+                    <i class="fas fa-receipt instrument-icon"></i>
+                    <h3>Documentary Credits</h3>
+                    <p>Secure payment backed by shipping documents.</p>
+                </div>
+                <div class="instrument-item">
+                    <i class="fas fa-exchange-alt instrument-icon"></i>
+                    <h3>International Bill of Exchange</h3>
+                    <p>Negotiable instruments for international trade settlements.</p>
+                </div>
+                <div class="instrument-item">
+                    <i class="fas fa-chart-bar instrument-icon"></i>
+                    <h3>Asset-Based Instruments</h3>
+                    <p>Financial instruments backed by tangible assets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Monetizing Section -->
+    <section id="monetizing" class="monetizing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Monetizing & Trading Services</h2>
+            </div>
+            <div class="monetizing-content">
+                <div class="monetizing-text">
+                    <h3>Maximize Your Financial Instruments</h3>
+                    <p>We specialize in monetizing, trading, and discounting all types of bank instruments to provide immediate liquidity and financial flexibility.</p>
+                    <ul class="monetizing-list">
+                        <li>Monetization of standby letters of credit and bank guarantees</li>
+                        <li>Trading of financial instruments in global markets</li>
+                        <li>Discounting services for letters of credit and documentary credits</li>
+                        <li>Structured finance solutions for large transactions</li>
+                        <li>Bridge financing using bank instruments as collateral</li>
+                        <li>Portfolio optimization for financial institutions</li>
+                    </ul>
+                    <a href="#lead-form" class="btn" style="margin-top: 1.5rem;">Get Monetization Quote</a>
+                </div>
+                <div class="monetizing-image">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Financial Monetization">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultancy Section -->
+    <section id="consultancy" class="consultancy">
+        <div class="container">
+            <div class="section-title">
+                <h2>Consultancy & Marketing Services</h2>
+            </div>
+            <div class="consultancy-content">
+                <div class="consultancy-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Consultancy Services">
+                </div>
+                <div class="consultancy-text">
+                    <h3>Expert Guidance for Your Financial Needs</h3>
+                    <p>Our consultancy services provide strategic advice on trade finance instruments, helping you navigate complex financial landscapes.</p>
+                    <ul class="monetizing-list">
+                        <li>Structured trade finance advisory services</li>
+                        <li>Instrument selection and optimization strategies</li>
+                        <li>Risk assessment and mitigation planning</li>
+                        <li>Market analysis for financial instrument trading</li>
+                        <li>Marketing services for financial products</li>
+                        <li>Training programs on trade finance instruments</li>
+                    </ul>
+                    <a href="#lead-form" class="btn" style="margin-top: 1.5rem;">Request Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Canada Branch</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 419-1475 Bristol Road West</p>
+                    <p><i class="fas fa-city"></i> Mississauga, Ontario L5V 1W6</p>
+                    <p><i class="fas fa-flag"></i> Canada</p>
+                </div>
+                <div class="contact-info">
+                    <h3>Ghana Branch</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> GA-585-7449, Sorghum Street</p>
+                    <p><i class="fas fa-city"></i> Dansoman, Greater-Accra</p>
+                    <p><i class="fas fa-flag"></i> Ghana</p>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Details</h3>
+                    <p><i class="fas fa-envelope"></i> bristfin.consint@ghca.xyz</p>
+                    <p><i class="fab fa-whatsapp"></i> +1(437)907-9615</p>
+                </div>
+            </div>
+         
+                          
+        </div>
+    </section>
+
+     <div id="email-popup" class="popup-container" style="display: none;">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h3>join our newsletter</h3>
+     <form id="email-form" action="https://github.us12.list-manage.com/subscribe/post?u=6e3ba5a97176992a944b0807e&amp;id=f4a19d1358&amp;f_id=000ceee1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+     <input type="email" name="Email" placeholder="your email address" required>
+     <button type="submit">subsribe</button>
+     </form>
+    </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Bristol Finance & Consortium Int. Ltd.</h2>
+                    <p>Your trusted partner in global trade finance solutions.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <a href="#services">Services</a>
+                    <a href="#instruments">Instruments</a>
+                    <a href="#monetizing">Monetizing</a>
+                    <a href="#consultancy">Consultancy</a>
+                    <a href="#social">Social Media</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <a href="mailto:bristfin.consint@ghca.xyz">Email Us</a>
+                    <a href="https://wa.me/14379079615">WhatsApp</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/bristol-finance-consortium-international-64889a214?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/BristolTrades?t=KxiVKNXPaQYU75Gx4ayygA&s=09"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/share/1JR6Hg9kQy/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/bristol_financeint?igsh=eHB5dGU5Y2pwbWIy"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@bristol.finance?_t=ZM-90WPmrqPecC&_r=1"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/14379079615"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Bristol Finance & Consortium Int. Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Consent Button</title>
+    <style>
+        /* Cookie Consent Styles */
+        .cookie-consent-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 350px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+            z-index: 10000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transform: translateY(150%);
+            transition: transform 0.5s ease;
+        }
+
+        .cookie-consent-container.active {
+            transform: translateY(0);
+        }
+
+        .cookie-header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .cookie-header i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .cookie-header h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .cookie-body {
+            padding: 20px;
+        }
+
+        .cookie-body p {
+            margin: 0 0 15px 0;
+            color: #555;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .cookie-body a {
+            color: #2a5298;
+            text-decoration: none;
+        }
+
+        .cookie-body a:hover {
+            text-decoration: underline;
+        }
+
+        .cookie-types {
+            margin: 15px 0;
+        }
+
+        .cookie-type {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cookie-type:last-child {
+            border-bottom: none;
+        }
+
+        .cookie-type-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .cookie-type-info input {
+            margin-right: 10px;
+        }
+
+        .cookie-type-info label {
+            font-weight: 500;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .cookie-details {
+            font-size: 12px;
+            color: #777;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .cookie-type.active .cookie-details {
+            display: block;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .cookie-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cookie-btn-accept {
+            background: #2a5298;
+            color: white;
+        }
+
+        .cookie-btn-accept:hover {
+            background: #1e3c72;
+        }
+
+        .cookie-btn-settings {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .cookie-btn-settings:hover {
+            background: #e0e0e0;
+        }
+
+        .cookie-btn-save {
+            background: #2a5298;
+            color: white;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .cookie-btn-save:hover {
+            background: #1e3c72;
+        }
+
+        .cookie-settings {
+            display: none;
+        }
+
+        .cookie-footer {
+            padding: 0 20px 20px;
+            text-align: center;
+        }
+
+        .cookie-footer a {
+            color: #777;
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        .cookie-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .cookie-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #2a5298;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(42, 82, 152, 0.4);
+            z-index: 9999;
+            transition: all 0.3s ease;
+        }
+
+        .cookie-toggle:hover {
+            background: #1e3c72;
+            transform: scale(1.05);
+        }
+
+        .cookie-toggle i {
+            font-size: 24px;
+        }
+
+        /* Overlay */
+        .cookie-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9998;
+            display: none;
+        }
+
+        .cookie-overlay.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .cookie-consent-container {
+                width: calc(100% - 40px);
+                left: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cookie Toggle Button -->
+    <div class="cookie-toggle" id="cookieToggle">
+        <i>🍪</i>
+    </div>
+
+    <!-- Cookie Consent Container -->
+    <div class="cookie-consent-container" id="cookieConsent">
+        <div class="cookie-header">
+            <i>🍪</i>
+            <h3>Cookie Preferences</h3>
+        </div>
+        
+        <div class="cookie-body" id="cookieMain">
+            <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.</p>
+            
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-btn-settings" id="cookieSettingsBtn">Settings</button>
+                <button class="cookie-btn cookie-btn-accept" id="cookieAcceptBtn">Accept All</button>
+            </div>
+            
+            <div class="cookie-footer">
+                <a href="#" id="cookiePolicyLink">Cookie Policy</a>
+            </div>
+        </div>
+        
+        <div class="cookie-body cookie-settings" id="cookieSettings">
+            <p>Customize your cookie preferences. You can change these settings at any time by clicking the cookie icon in the bottom right corner.</p>
+            
+            <div class="cookie-types">
+                <div class="cookie-type">
+                    <div class="cookie-type-info">
+                        <input type="checkbox" id="necessaryCookies" checked disabled>
+                        <label for="necessaryCookies">Necessary Cookies</label>
+                    </div>
+                </div>
+                
+                <div class="cookie-type">
+                    <div class="cookie-type-info">
+                        <input type="checkbox" id="preferencesCookies">
+                        <label for="preferencesCookies">Preferences Cookies</label>
+                    </div>
+                </div>
+                
+                <div class="cookie-type">
+                    <div class="cookie-type-info">
+                        <input type="checkbox" id="analyticsCookies">
+                        <label for="analyticsCookies">Analytics Cookies</label>
+                    </div>
+                </div>
+                
+                <div class="cookie-type">
+                    <div class="cookie-type-info">
+                        <input type="checkbox" id="marketingCookies">
+                        <label for="marketingCookies">Marketing Cookies</label>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="cookie-btn cookie-btn-save" id="cookieSaveBtn">Save Preferences</button>
+            
+            <div class="cookie-footer">
+                <a href="#" id="cookiePolicyLink2">Cookie Policy</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="cookie-overlay" id="cookieOverlay"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const cookieToggle = document.getElementById('cookieToggle');
+            const cookieConsent = document.getElementById('cookieConsent');
+            const cookieOverlay = document.getElementById('cookieOverlay');
+            const cookieAcceptBtn = document.getElementById('cookieAcceptBtn');
+            const cookieSettingsBtn = document.getElementById('cookieSettingsBtn');
+            const cookieSaveBtn = document.getElementById('cookieSaveBtn');
+            const cookieMain = document.getElementById('cookieMain');
+            const cookieSettings = document.getElementById('cookieSettings');
+            
+            // Check if user has already made a choice
+            const cookieChoice = getCookie('cookieConsent');
+            
+            // If no choice has been made, show the cookie consent after a delay
+            if (!cookieChoice) {
+                setTimeout(() => {
+                    showCookieConsent();
+                }, 1000);
+            }
+            
+            // Toggle cookie consent display
+            cookieToggle.addEventListener('click', function() {
+                if (cookieConsent.classList.contains('active')) {
+                    hideCookieConsent();
+                } else {
+                    showCookieConsent();
+                }
+            });
+            
+            // Overlay click to close
+            cookieOverlay.addEventListener('click', function() {
+                hideCookieConsent();
+            });
+            
+            // Accept all cookies
+            cookieAcceptBtn.addEventListener('click', function() {
+                setCookie('cookieConsent', 'all', 365);
+                setCookie('necessaryCookies', 'true', 365);
+                setCookie('preferencesCookies', 'true', 365);
+                setCookie('analyticsCookies', 'true', 365);
+                setCookie('marketingCookies', 'true', 365);
+                hideCookieConsent();
+                alert('All cookies accepted. Thank you!');
+            });
+            
+            // Show settings
+            cookieSettingsBtn.addEventListener('click', function() {
+                cookieMain.style.display = 'none';
+                cookieSettings.style.display = 'block';
+                
+                // Set checkboxes based on previous choices
+                document.getElementById('preferencesCookies').checked = getCookie('preferencesCookies') === 'true';
+                document.getElementById('analyticsCookies').checked = getCookie('analyticsCookies') === 'true';
+                document.getElementById('marketingCookies').checked = getCookie('marketingCookies') === 'true';
+            });
+            
+            // Save preferences
+            cookieSaveBtn.addEventListener('click', function() {
+                const preferences = document.getElementById('preferencesCookies').checked;
+                const analytics = document.getElementById('analyticsCookies').checked;
+                const marketing = document.getElementById('marketingCookies').checked;
+                
+                setCookie('cookieConsent', 'custom', 365);
+                setCookie('necessaryCookies', 'true', 365);
+                setCookie('preferencesCookies', preferences ? 'true' : 'false', 365);
+                setCookie('analyticsCookies', analytics ? 'true' : 'false', 365);
+                setCookie('marketingCookies', marketing ? 'true' : 'false', 365);
+                
+                hideCookieConsent();
+                alert('Cookie preferences saved successfully!');
+            });
+            
+            // Show cookie consent
+            function showCookieConsent() {
+                cookieConsent.classList.add('active');
+                cookieOverlay.classList.add('active');
+            }
+            
+            // Hide cookie consent
+            function hideCookieConsent() {
+                cookieConsent.classList.remove('active');
+                cookieOverlay.classList.remove('active');
+                cookieMain.style.display = 'block';
+                cookieSettings.style.display = 'none';
+            }
+            
+            // Set cookie
+            function setCookie(name, value, days) {
+                const expires = new Date();
+                expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+                document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+            }
+            
+            // Get cookie
+            function getCookie(name) {
+                const nameEQ = name + "=";
+                const ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            }
+        });
+
+
+
+
+        // show popup after 5 seconds
+
+setTimeout(function(){
+document.getElementById("email-popup").style.display="flex"
+},5000);
+
+// close popup when X is clicked
+document.querySelector(".close-btn").addEventListener("click",function(){
+document.getElementById("email-popup").style.display="none";
+})
+
+// close when clicking outside content
+document.getElementById("email-popup").addEventListener("click",function(e){
+if(e.target=== this){
+   this.style.display="none";
+}
+});
+
+
+    </script>
+
+ <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const checkoutForm = document.getElementById("checkoutForm");
+    const popup = document.getElementById("email-popup");
+    const closeBtn = document.querySelector(".close-btn");
+
+    checkoutForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById('firstName').value;
+        const Lname = document.getElementById('lastName').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const company = document.getElementById('company').value;
+        const instrumrnt = document.querySelector('select[name="instrument"]').value ;
+         const Currency = document.querySelector('select[name="amount"]').value ;
+        
+
+        const subject = 'Apply Now';
+        const body = `
+Hello Bristol Finance & Consortium International Limited,
+
+My details:
+- First Name: ${name}
+- Last Name: ${Lname}
+- Email: ${email}
+- Phone: ${phone}
+- Company: ${company}
+- Instrument: ${instrumrnt}
+- Currency: ${Currency}
+
+Please process my request for me.
+        `.trim();
+
+        // Send the mail
+        const mailtoLink = `mailto:mrdennisotooaddo@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoLink;
+
+        
+    });
+
+ 
+
+   
+});
+</script>
+
+    </script>
+</body>
+</html>
+</body>
+</html>

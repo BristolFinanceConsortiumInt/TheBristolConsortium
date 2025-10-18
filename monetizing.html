@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monetizing, Trading & Discounting | Bristol Finance & Consortium Int. Ltd.</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #003366;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --light-blue: #E6F2FF;
+            --dark-blue: #002244;
+            --light-gold: #F5E8C8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            color: var(--blue);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--blue);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            color: var(--gold);
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        nav ul li a.active {
+            color: var(--gold);
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--gold);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .monetizing-hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.9)), url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .monetizing-hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .monetizing-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--blue);
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            background-color: #e6c34c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-outline {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--blue);
+            border: 2px solid var(--blue);
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--blue);
+            color: var(--white);
+        }
+        
+        /* Services Overview */
+        .services-overview {
+            padding: 5rem 0;
+            background-color: var(--light-blue);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--blue);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--gold);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card h3 {
+            color: var(--blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .service-card p {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Detailed Services */
+        .detailed-services {
+            padding: 5rem 0;
+        }
+        
+        .service-detail {
+            margin-bottom: 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .service-detail:nth-child(even) .service-image {
+            order: 2;
+        }
+        
+        .service-detail:nth-child(even) .service-text {
+            order: 1;
+        }
+        
+        .service-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--blue);
+        }
+        
+        .service-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .service-features li {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .service-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .service-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 5rem 0;
+            background-color: var(--light-blue);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .benefit-item {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .benefit-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefit-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--blue);
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 5rem 0;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            border-top: 4px solid var(--gold);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--gold);
+            color: var(--blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .process-step h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--blue);
+        }
+        
+        /* Instruments Covered */
+        .instruments-covered {
+            padding: 5rem 0;
+            background-color: var(--light-blue);
+        }
+        
+        .instruments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .instrument-item {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .instrument-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .instrument-icon {
+            font-size: 2rem;
+            color: var(--blue);
+            margin-bottom: 1rem;
+        }
+        
+        .instrument-item h4 {
+            font-size: 1.1rem;
+            color: var(--blue);
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 5rem 0;
+            text-align: center;
+            background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.9)), url('https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo h2 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--gold);
+            color: var(--blue);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .service-detail {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-detail:nth-child(even) .service-image {
+                order: 1;
+            }
+            
+            .service-detail:nth-child(even) .service-text {
+                order: 2;
+            }
+            
+            .monetizing-hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-landmark logo-icon"></i>
+                    <h1>Bristol <span>Finance</span></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="instruments.html">Instruments</a></li>
+                        <li><a href="monetizing.html" class="active">Monetizing</a></li>
+                        <li><a href="consultancy.html">Consultancy</a></li>
+                        <li><a href="assets.html">Asset-Based</a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Monetizing Hero Section -->
+    <section class="monetizing-hero">
+        <div class="container">
+            <h2>Monetizing, Trading & Discounting Services</h2>
+            <p>Unlock the liquidity in your banking instruments through our comprehensive monetization, trading, and discounting solutions</p>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Monetization Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-money-bill-wave service-icon"></i>
+                    <h3>Instrument Monetizing</h3>
+                    <p>Convert your banking instruments into immediate cash flow through our monetization programs.</p>
+                    <a href="#monetizing" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chart-line service-icon"></i>
+                    <h3>Instrument Trading</h3>
+                    <p>Buy and sell financial instruments in global markets with our expert trading services.</p>
+                    <a href="#trading" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-percentage service-icon"></i>
+                    <h3>Instrument Discounting</h3>
+                    <p>Access immediate funds by discounting your future payment instruments at competitive rates.</p>
+                    <a href="#discounting" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Services -->
+    <section class="detailed-services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Service Details</h2>
+            </div>
+            
+            <!-- Instrument Monetizing -->
+            <div id="monetizing" class="service-detail">
+                <div class="service-text">
+                    <h3>Instrument Monetizing</h3>
+                    <p>Our instrument monetization services convert your banking instruments into immediate liquidity, providing you with the working capital needed to grow your business. We specialize in monetizing a wide range of financial instruments through our global network of financial institutions.</p>
+                    <ul class="service-features">
+                        <li>Convert SBLCs, Bank Guarantees, and LCs into cash</li>
+                        <li>Immediate access to working capital</li>
+                        <li>Competitive monetization rates</li>
+                        <li>Global network of funding partners</li>
+                        <li>Structured monetization programs</li>
+                        <li>Asset-backed monetization solutions</li>
+                        <li>Short-term and long-term monetization options</li>
+                        <li>Confidential and secure transactions</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Start Monetizing</a>
+                </div>
+                <div class="service-image">
+                    <img src="images/bristol item 12.png" alt="Instrument Monetizing">
+                </div>
+            </div>
+            
+            <!-- Instrument Trading -->
+            <div id="trading" class="service-detail">
+                <div class="service-text">
+                    <h3>Instrument Trading</h3>
+                    <p>Our instrument trading services provide a platform for buying and selling financial instruments in global markets. We connect buyers and sellers while ensuring secure transactions and optimal pricing for all parties involved.</p>
+                    <ul class="service-features">
+                        <li>Global marketplace for financial instruments</li>
+                        <li>Secure and transparent trading platform</li>
+                        <li>Expert market analysis and pricing</li>
+                        <li>Access to verified buyers and sellers</li>
+                        <li>Secondary market trading opportunities</li>
+                        <li>Portfolio optimization services</li>
+                        <li>Risk management strategies</li>
+                        <li>Regulatory compliance assurance</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Start Trading</a>
+                </div>
+                <div class="service-image">
+                    <img src="images/bristol item 8.png" alt="Instrument Trading">
+                </div>
+            </div>
+            
+            <!-- Instrument Discounting -->
+            <div id="discounting" class="service-detail">
+                <div class="service-text">
+                    <h3>Instrument Discounting</h3>
+                    <p>Our discounting services allow you to access immediate funds by selling your future payment instruments at a discount. This provides you with liquidity while the instrument holder assumes the risk and waits for the maturity date.</p>
+                    <ul class="service-features">
+                        <li>Discount Letters of Credit and Bills of Exchange</li>
+                        <li>Immediate cash against future payments</li>
+                        <li>Competitive discount rates</li>
+                        <li>Flexible discounting terms</li>
+                        <li>Risk assessment and mitigation</li>
+                        <li>Document verification services</li>
+                        <li>Quick processing and settlement</li>
+                        <li>Recourse and non-recourse options</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Start Discounting</a>
+                </div>
+                <div class="service-image">
+                    <img src="images/bristol item 14.png" alt="Instrument Discounting">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Benefits of Our Monetization Services</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-bolt benefit-icon"></i>
+                    <h4>Immediate Liquidity</h4>
+                    <p>Convert your instruments to cash quickly and efficiently</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-shield-alt benefit-icon"></i>
+                    <h4>Risk Mitigation</h4>
+                    <p>Reduce exposure to market fluctuations and credit risks</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-chart-pie benefit-icon"></i>
+                    <h4>Portfolio Optimization</h4>
+                    <p>Improve your financial portfolio with strategic monetization</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-globe benefit-icon"></i>
+                    <h4>Global Access</h4>
+                    <p>Tap into international markets and funding sources</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-hand-holding-usd benefit-icon"></i>
+                    <h4>Competitive Rates</h4>
+                    <p>Get the best value for your financial instruments</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-user-tie benefit-icon"></i>
+                    <h4>Expert Guidance</h4>
+                    <p>Benefit from our team of financial experts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Monetization Process</h2>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Instrument Evaluation</h4>
+                    <p>We assess your financial instrument for authenticity, value, and monetization potential.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Proposal & Terms</h4>
+                    <p>We present a detailed monetization proposal with competitive rates and terms.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Due Diligence</h4>
+                    <p>We conduct thorough due diligence and verification of all documents.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Funding & Settlement</h4>
+                    <p>Once approved, funds are transferred to your account according to the agreed terms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instruments Covered -->
+    <section class="instruments-covered">
+        <div class="container">
+            <div class="section-title">
+                <h2>Instruments We Monetize & Trade</h2>
+            </div>
+            <div class="instruments-grid">
+                <div class="instrument-item">
+                    <i class="fas fa-file-contract instrument-icon"></i>
+                    <h4>Standby Letters of Credit</h4>
+                </div>
+                <div class="instrument-item">
+                    <i class="fas fa-handshake instrument-icon"></i>
+                    <h4>Bank Guarantees</h4>
+                </div>
+                <div class="instrument-item">
+                    <i class="fas fa-file-invoice-dollar instrument-icon"></i>
+                    <h4>Letters of Credit</h4>
+                </div>
+                <div class="instrument-item">
+                    <i class="fas fa-file-signature instrument-icon"></i>
+                    <h4>Documentary Credits</h4>
+                </div>
+                <div class="instrument-item">
+                    <i class="fas fa-exchange-alt instrument-icon"></i>
+                    <h4>Bills of Exchange</h4>
+                </div>
+                <div class="instrument-item">
+                    <i class="fas fa-chart-bar instrument-icon"></i>
+                    <h4>Asset-Based Instruments</h4>
+                </div>
+                <div class="instrument-item">
+                    <i class="fas fa-tasks instrument-icon"></i>
+                    <h4>Performance Bonds</h4>
+                </div>
+                <div class="instrument-item">
+                    <i class="fas fa-money-check-alt instrument-icon"></i>
+                    <h4>Advance Payment Guarantees</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Unlock Your Instrument's Value?</h2>
+            <p>Contact our monetization experts today to discuss how we can help you convert your banking instruments into immediate liquidity.</p>
+            <a href="contact.html" class="btn">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Bristol Finance & Consortium Int. Ltd.</h2>
+                    <p>Your trusted partner in global trade finance solutions.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="services.html">Services</a>
+                    <a href="instruments.html">Instruments</a>
+                    <a href="monetizing.html">Monetizing</a>
+                    <a href="consultancy.html">Consultancy</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <a href="mailto:bristfin.consint@ghca.xyz">Email Us</a>
+                    <a href="https://wa.me/14379079615">WhatsApp</a>
+                    <p>Canada: 419-1475 Bristol Road West, Mississauga</p>
+                    <p>Ghana: GA-585-7449, Sorghum Street, Dansoman</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/bristol-finance-consortium-international-64889a214?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/BristolTrades?t=KxiVKNXPaQYU75Gx4ayygA&s=09"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/share/1JR6Hg9kQy/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/bristol_financeint?igsh=eHB5dGU5Y2pwbWIy"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@bristol.finance?_t=ZM-90WPmrqPecC&_r=1"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/14379079615"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Bristol Finance & Consortium Int. Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

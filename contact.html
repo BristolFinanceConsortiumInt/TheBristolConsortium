@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Bristol Finance & Consortium Int. Ltd.</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        :root {
+            --blue: #003366;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --light-blue: #E6F2FF;
+            --dark-blue: #002244;
+            --light-gold: #F5E8C8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            color: var(--blue);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--blue);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            color: var(--gold);
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        nav ul li a.active {
+            color: var(--gold);
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--gold);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .contact-hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.9)), url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .contact-hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--blue);
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            background-color: #e6c34c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-outline {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--blue);
+            border: 2px solid var(--blue);
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--blue);
+            color: var(--white);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 0;
+            background-color: var(--light-blue);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--blue);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--blue);
+        }
+        
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-right: 1rem;
+            width: 30px;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: var(--blue);
+        }
+        
+        .contact-text p {
+            margin-bottom: 0.2rem;
+        }
+        
+        .contact-text a {
+            color: var(--blue);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-text a:hover {
+            color: var(--gold);
+        }
+        
+        .social-contact {
+            margin-top: 2rem;
+        }
+        
+        .social-contact h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--blue);
+        }
+        
+        .social-links-contact {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links-contact a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: var(--light-blue);
+            border-radius: 50%;
+            color: var(--blue);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links-contact a:hover {
+            background-color: var(--gold);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--blue);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--blue);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        /* Map Section */
+        .map-section {
+            padding: 5rem 0;
+        }
+        
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            height: 450px;
+        }
+        
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+        
+        /* Branches Section */
+        .branches {
+            padding: 5rem 0;
+            background-color: var(--light-blue);
+        }
+        
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .branch-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .branch-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .branch-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .branch-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--blue);
+        }
+        
+        .branch-card p {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 5rem 0;
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .faq-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--blue);
+        }
+        
+        .faq-answer {
+            color: #555;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 5rem 0;
+            text-align: center;
+            background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.9)), url('https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo h2 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--gold);
+            color: var(--blue);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .branches-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class ="logo">
+                    <i class="fas fa-landmark logo-icon"></i>
+                    <h1>Bristol <span>Finance</span></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="instruments.html">Instruments</a></li>
+                        <li><a href="monetizing.html">Monetizing</a></li>
+                        <li><a href="consultancy.html">Consultancy</a></li>
+                        <li><a href="assets.html">Asset-Based</a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Get in touch with our team of trade finance experts to discuss your financial needs</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <div class="contact-text">
+                                <h4>Canada Branch</h4>
+                                <p>419-1475 Bristol Road West</p>
+                                <p>Mississauga, Ontario L5V 1W6</p>
+                                <p>Canada</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <div class="contact-text">
+                                <h4>Ghana Branch</h4>
+                                <p>GA-585-7449, Sorghum Street</p>
+                                <p>Dansoman, Greater-Accra</p>
+                                <p>Ghana</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt contact-icon"></i>
+                            <div class="contact-text">
+                                <h4>Phone & WhatsApp</h4>
+                                <p><a href="tel:+14379079615">+1 (437) 907-9615</a></p>
+                                <p><a href="https://wa.me/14379079615">WhatsApp: +1 (437) 907-9615</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p><a href="mailto:bristfin.consint@ghca.xyz">bristfin.consint@ghca.xyz</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock contact-icon"></i>
+                            <div class="contact-text">
+                                <h4>Business Hours</h4>
+                                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                <p>Saturday: 10:00 AM - 2:00 PM</p>
+                                <p>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-contact">
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                    <a href="https://www.linkedin.com/in/bristol-finance-consortium-international-64889a214?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/BristolTrades?t=KxiVKNXPaQYU75Gx4ayygA&s=09"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/share/1JR6Hg9kQy/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/bristol_financeint?igsh=eHB5dGU5Y2pwbWIy"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@bristol.finance?_t=ZM-90WPmrqPecC&_r=1"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/14379079615"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="sblc">Standby Letters of Credit</option>
+                                <option value="guarantees">Bank Guarantees</option>
+                                <option value="letters">Letters of Credit</option>
+                                <option value="documentary">Documentary Credits</option>
+                                <option value="monetizing">Monetizing Services</option>
+                                <option value="consultancy">Consultancy Services</option>
+                                <option value="asset-based">Asset-Based Finance</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Please provide details about your inquiry..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Location</h2>
+                <p>Visit our Canada branch at the address below</p>
+            </div>
+            <div class="map-container">
+                <div id="map"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branches Section -->
+    <section class="branches">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Global Branches</h2>
+            </div>
+            <div class="branches-grid">
+                <div class="branch-card">
+                    <i class="fas fa-map-marked-alt branch-icon"></i>
+                    <h3>Canada Branch</h3>
+                    <p>419-1475 Bristol Road West</p>
+                    <p>Mississauga, Ontario L5V 1W6</p>
+                    <p>Canada</p>
+                    <p><strong>Phone:</strong> +1 (437) 907-9615</p>
+                </div>
+                <div class="branch-card">
+                    <i class="fas fa-map-marked-alt branch-icon"></i>
+                    <h3>Ghana Branch</h3>
+                    <p>GA-585-7449, Sorghum Street</p>
+                    <p>Dansoman, Greater-Accra</p>
+                    <p>Ghana</p>
+                    <p><strong>Phone:</strong> +1 (437) 907-9615</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">What is the typical response time for inquiries?</div>
+                    <div class="faq-answer">We strive to respond to all inquiries within 24 hours during business days. For urgent matters, please contact us via WhatsApp for immediate assistance.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do you offer virtual consultations?</div>
+                    <div class="faq-answer">Yes, we offer virtual consultations via Zoom, Microsoft Teams, or WhatsApp video calls to accommodate clients from different locations.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What documents do I need to provide for trade finance services?</div>
+                    <div class="faq-answer">Required documents vary by service but typically include company registration documents, financial statements, identification, and transaction details. Our team will provide a specific checklist based on your needs.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How long does it take to process banking instruments?</div>
+                    <div class="faq-answer">Processing times vary by instrument type and complexity. Simple instruments may take 3-5 business days, while more complex structured instruments can take 1-2 weeks.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Contact our team today to discuss your trade finance needs and discover how we can help your business grow.</p>
+            <a href="tel:+14379079615" class="btn">Call Us Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Bristol Finance & Consortium Int. Ltd.</h2>
+                    <p>Your trusted partner in global trade finance solutions.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="services.html">Services</a>
+                    <a href="instruments.html">Instruments</a>
+                    <a href="monetizing.html">Monetizing</a>
+                    <a href="consultancy.html">Consultancy</a>
+                    <a href="assets.html">Asset-Based</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <a href="mailto:bristfin.consint@ghca.xyz">Email Us</a>
+                    <a href="https://wa.me/14379079615">WhatsApp</a>
+                    <p>Canada: 419-1475 Bristol Road West, Mississauga</p>
+                    <p>Ghana: GA-585-7449, Sorghum Street, Dansoman</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/bristol-finance-consortium-international-64889a214?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/BristolTrades?t=9pxc9M6NfmxQeHMHEmH9vQ&s=09"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/share/1JR6Hg9kQy/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/bristol_financeint?igsh=eHB5dGU5Y2pwbWIy"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@bristol.finance?_t=ZM-90WPmrqPecC&_r=1"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/14379079615"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Bristol Finance & Consortium Int. Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS for maps -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        function initMap() {
+            // Coordinates for Mississauga, Ontario (approximate)
+            const mississaugaCoords = [43.5890, -79.6441];
+            
+            // Create the map
+            const map = L.map('map').setView(mississaugaCoords, 13);
+            
+            // Add OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Add a marker for the Canada branch
+            const marker = L.marker(mississaugaCoords).addTo(map);
+            marker.bindPopup(`
+                <div style="text-align: center;">
+                    <h3 style="margin: 0 0 10px 0; color: #003366;">Bristol Finance & Consortium</h3>
+                    <p style="margin: 5px 0;">Canada Branch</p>
+                    <p style="margin: 5px 0;">419-1475 Bristol Road West</p>
+                    <p style="margin: 5px 0;">Mississauga, Ontario L5V 1W6</p>
+                    <p style="margin: 5px 0;">Canada</p>
+                </div>
+            `).openPopup();
+        }
+        
+        // Initialize the map when the page loads
+        document.addEventListener('DOMContentLoaded', initMap);
+        
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Instruments | Bristol Finance & Consortium Int. Ltd.</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #003366;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --light-blue: #E6F2FF;
+            --dark-blue: #002244;
+            --light-gold: #F5E8C8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            color: var(--blue);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--blue);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            color: var(--gold);
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        nav ul li a.active {
+            color: var(--gold);
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--gold);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .instruments-hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.9)), url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .instruments-hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .instruments-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--blue);
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            background-color: #e6c34c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-outline {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--blue);
+            border: 2px solid var(--blue);
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--blue);
+            color: var(--white);
+        }
+        
+        /* Instruments Overview */
+        .instruments-overview {
+            padding: 5rem 0;
+            background-color: var(--light-blue);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--blue);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+        
+        .instruments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .instrument-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .instrument-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--gold);
+        }
+        
+        .instrument-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .instrument-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .instrument-card h3 {
+            color: var(--blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .instrument-card p {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Detailed Instruments */
+        .detailed-instruments {
+            padding: 5rem 0;
+        }
+        
+        .instrument-detail {
+            margin-bottom: 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .instrument-detail:nth-child(even) .instrument-image {
+            order: 2;
+        }
+        
+        .instrument-detail:nth-child(even) .instrument-text {
+            order: 1;
+        }
+        
+        .instrument-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--blue);
+        }
+        
+        .instrument-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .instrument-features li {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .instrument-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .instrument-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .instrument-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .instrument-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Comparison Table */
+        .comparison {
+            padding: 5rem 0;
+            background-color: var(--light-blue);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .comparison-table th {
+            background-color: var(--blue);
+            color: var(--white);
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .comparison-table .feature {
+            font-weight: 600;
+            color: var(--blue);
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 5rem 0;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            border-top: 4px solid var(--gold);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--gold);
+            color: var(--blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .process-step h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--blue);
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 5rem 0;
+            text-align: center;
+            background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.9)), url('https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo h2 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--gold);
+            color: var(--blue);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .instrument-detail {
+                grid-template-columns: 1fr;
+            }
+            
+            .instrument-detail:nth-child(even) .instrument-image {
+                order: 1;
+            }
+            
+            .instrument-detail:nth-child(even) .instrument-text {
+                order: 2;
+            }
+            
+            .instruments-hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .instruments-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-landmark logo-icon"></i>
+                    <h1>Bristol <span>Finance</span></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="instruments.html" class="active">Instruments</a></li>
+                        <li><a href="monetizing.html">Monetizing</a></li>
+                        <li><a href="consultancy.html">Consultancy</a></li>
+                        <li><a href="assets.html">Asset-Based</a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Instruments Hero Section -->
+    <section class="instruments-hero">
+        <div class="container">
+            <h2>Comprehensive Banking Instruments</h2>
+            <p>Explore our wide range of financial instruments designed to secure and facilitate international trade</p>
+        </div>
+    </section>
+
+    <!-- Instruments Overview -->
+    <section class="instruments-overview">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Banking Instruments</h2>
+            </div>
+            <div class="instruments-grid">
+                <div class="instrument-card">
+                    <i class="fas fa-file-contract instrument-icon"></i>
+                    <h3>Standby Letters of Credit</h3>
+                    <p>Financial guarantees ensuring payment if contractual obligations are not met.</p>
+                    <a href="#sblc" class="btn">Learn More</a>
+                </div>
+                <div class="instrument-card">
+                    <i class="fas fa-handshake instrument-icon"></i>
+                    <h3>Bank Guarantees</h3>
+                    <p>Assurances from banks covering financial obligations and performance.</p>
+                    <a href="#guarantees" class="btn">Learn More</a>
+                </div>
+                <div class="instrument-card">
+                    <i class="fas fa-file-invoice-dollar instrument-icon"></i>
+                    <h3>Letters of Credit</h3>
+                    <p>Secure payment mechanisms for international trade transactions.</p>
+                    <a href="#letters" class="btn">Learn More</a>
+                </div>
+                <div class="instrument-card">
+                    <i class="fas fa-file-signature instrument-icon"></i>
+                    <h3>Documentary Credits</h3>
+                    <p>Payment backed by comprehensive documentation and compliance.</p>
+                    <a href="#documentary" class="btn">Learn More</a>
+                </div>
+                <div class="instrument-card">
+                    <i class="fas fa-exchange-alt instrument-icon"></i>
+                    <h3>International Bill of Exchange</h3>
+                    <p>Negotiable instruments for international trade settlements.</p>
+                    <a href="#bill-exchange" class="btn">Learn More</a>
+                </div>
+                <div class="instrument-card">
+                    <i class="fas fa-chart-bar instrument-icon"></i>
+                    <h3>Asset-Based Instruments</h3>
+                    <p>Financial tools backed by tangible assets for enhanced security.</p>
+                    <a href="#asset-based" class="btn">Learn More</a>
+                </div>
+                <div class="instrument-card">
+                    <i class="fas fa-tasks instrument-icon"></i>
+                    <h3>Performance Bonds</h3>
+                    <p>Guarantees ensuring completion of contractual obligations.</p>
+                    <a href="#performance" class="btn">Learn More</a>
+                </div>
+                <div class="instrument-card">
+                    <i class="fas fa-money-check-alt instrument-icon"></i>
+                    <h3>Advance Payment Guarantees</h3>
+                    <p>Security instruments for advance payments in business deals.</p>
+                    <a href="#advance" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Instruments -->
+    <section class="detailed-instruments">
+        <div class="container">
+            <div class="section-title">
+                <h2>Instrument Details</h2>
+            </div>
+            
+            <!-- Standby Letters of Credit -->
+            <div id="sblc" class="instrument-detail">
+                <div class="instrument-text">
+                    <h3>Standby Letters of Credit (SBLC)</h3>
+                    <p>A Standby Letter of Credit is a financial guarantee issued by a bank on behalf of a client, used as a "payment of last resort" should the client fail to fulfill a contractual commitment. SBLCs are commonly used in international trade and project financing.</p>
+                    <ul class="instrument-features">
+                        <li>Acts as a guarantee of payment or performance</li>
+                        <li>Used in international trade transactions</li>
+                        <li>Issued based on client's creditworthiness</li>
+                        <li>Can be used as collateral for loans</li>
+                        <li>Typically valid for one year, renewable</li>
+                        <li>Governed by ISP98 or UCP600 rules</li>
+                        <li>Can be confirmed or unconfirmed</li>
+                        <li>Transferable or non-transferable options</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Request SBLC</a>
+                </div>
+                <div class="instrument-image">
+                    <img src="images/caroseladv.jpg" alt="Standby Letters of Credit">
+                </div>
+            </div>
+            
+            <!-- Bank Guarantees -->
+            <div id="guarantees" class="instrument-detail">
+                <div class="instrument-text">
+                    <h3>Bank Guarantees</h3>
+                    <p>A Bank Guarantee is a promise from a bank that ensures a debtor's liabilities will be met if the debtor fails to settle a debt. It serves as a safety net for the beneficiary in case the applicant doesn't fulfill their contractual obligations.</p>
+                    <ul class="instrument-features">
+                        <li>Direct and indirect guarantee options</li>
+                        <li>Financial and performance guarantees</li>
+                        <li>Tender guarantees for bidding processes</li>
+                        <li>Payment guarantees for suppliers</li>
+                        <li>Customized terms and conditions</li>
+                        <li>International acceptance</li>
+                        <li>Risk mitigation for business transactions</li>
+                        <li>Flexible validity periods</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Get Bank Guarantee</a>
+                </div>
+                <div class="instrument-image">
+                    <img src="images/officehours.jpg" alt="Bank Guarantees">
+                </div>
+            </div>
+            
+            <!-- Letters of Credit -->
+            <div id="letters" class="instrument-detail">
+                <div class="instrument-text">
+                    <h3>Letters of Credit</h3>
+                    <p>A Letter of Credit is a document issued by a bank guaranteeing a buyer's payment to a seller will be received on time and for the correct amount. It is one of the most secure instruments available for international traders.</p>
+                    <ul class="instrument-features">
+                        <li>Sight and usance LC options</li>
+                        <li>Revocable and irrevocable LCs</li>
+                        <li>Confirmed and unconfirmed LCs</li>
+                        <li>Transferable Letters of Credit</li>
+                        <li>Back-to-Back Letters of Credit</li>
+                        <li>Revolving Letters of Credit</li>
+                        <li>Red Clause Letters of Credit</li>
+                        <li>Green Clause Letters of Credit</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Open Letter of Credit</a>
+                </div>
+                <div class="instrument-image">
+                    <img src="images/discounting.jpg" alt="Letters of Credit">
+                </div>
+            </div>
+            
+            <!-- Documentary Credits -->
+            <div id="documentary" class="instrument-detail">
+                <div class="instrument-text">
+                    <h3>Documentary Credits</h3>
+                    <p>Documentary Credits are Letters of Credit that require specific documents to be presented before payment is made. These documents typically include bills of lading, commercial invoices, insurance documents, and other shipping documents.</p>
+                    <ul class="instrument-features">
+                        <li>Full compliance with UCP 600 standards</li>
+                        <li>Document verification and validation</li>
+                        <li>Risk mitigation through proper documentation</li>
+                        <li>Expert advice on documentary requirements</li>
+                        <li>Efficient processing and settlement</li>
+                        <li>Global network of correspondent banks</li>
+                        <li>Document preparation assistance</li>
+                        <li>Compliance checking services</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Arrange Documentary Credit</a>
+                </div>
+                <div class="instrument-image">
+                    <img src="images/dlcglass.jpg" alt="Documentary Credits">
+                </div>
+            </div>
+            
+            <!-- International Bill of Exchange -->
+            <div id="bill-exchange" class="instrument-detail">
+                <div class="instrument-text">
+                    <h3>International Bill of Exchange</h3>
+                    <p>An International Bill of Exchange is a negotiable instrument that contains an unconditional order to pay a specified amount of money to a specific person or to the bearer of the instrument, at a fixed or determinable future time.</p>
+                    <ul class="instrument-features">
+                        <li>Negotiable instruments for trade settlements</li>
+                        <li>Unconditional payment orders</li>
+                        <li>Discounting and financing options</li>
+                        <li>International acceptance and recognition</li>
+                        <li>Risk mitigation in cross-border transactions</li>
+                        <li>Flexible payment terms</li>
+                        <li>Expert guidance on bill requirements</li>
+                        <li>Efficient processing and settlement</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Learn More About Bill of Exchange</a>
+                </div>
+                <div class="instrument-image">
+                    <img src="images/eagleadv.jpg" alt="International Bill of Exchange">
+                </div>
+            </div>
+            
+            <!-- Asset-Based Instruments -->
+            <div id="asset-based" class="instrument-detail">
+                <div class="instrument-text">
+                    <h3>Asset-Based Instruments</h3>
+                    <p>Asset-Based Instruments are financial tools that are backed by tangible assets such as real estate, equipment, inventory, or accounts receivable. These instruments provide enhanced security and value for financing and trade purposes.</p>
+                    <ul class="instrument-features">
+                        <li>Instruments backed by tangible assets</li>
+                        <li>Enhanced security and collateral value</li>
+                        <li>Asset valuation and assessment services</li>
+                        <li>Structured financing solutions</li>
+                        <li>Risk mitigation through asset backing</li>
+                        <li>Customized instrument structures</li>
+                        <li>Expert asset management advice</li>
+                        <li>Global acceptance and recognition</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Explore Asset-Based Instruments</a>
+                </div>
+                <div class="instrument-image">
+                    <img src="images/mineralshelf.jpg" alt="Asset-Based Instruments">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison">
+        <div class="container">
+            <div class="section-title">
+                <h2>Instrument Comparison</h2>
+                <p>Compare different banking instruments to find the right solution for your needs</p>
+            </div>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>SBLC</th>
+                        <th>Bank Guarantee</th>
+                        <th>Letter of Credit</th>
+                        <th>Bill of Exchange</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature">Primary Use</td>
+                        <td>Payment guarantee</td>
+                        <td>Performance assurance</td>
+                        <td>Trade payment</td>
+                        <td>Payment order</td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Risk Level</td>
+                        <td>Low</td>
+                        <td>Low to Medium</td>
+                        <td>Low</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Cost</td>
+                        <td>Medium to High</td>
+                        <td>Low to Medium</td>
+                        <td>Medium</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Processing Time</td>
+                        <td>5-10 days</td>
+                        <td>3-7 days</td>
+                        <td>3-5 days</td>
+                        <td>1-3 days</td>
+                    </tr>
+                    <tr>
+                        <td class="feature">International Use</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Collateral Required</td>
+                        <td>Yes</td>
+                        <td>Sometimes</td>
+                        <td>Sometimes</td>
+                        <td>No</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>How to Obtain Banking Instruments</h2>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Application</h4>
+                    <p>Submit your application with required documentation and details about your transaction.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Assessment</h4>
+                    <p>Our experts evaluate your requirements and recommend the most suitable instrument.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Approval</h4>
+                    <p>We process your application and obtain necessary approvals from issuing banks.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Issuance</h4>
+                    <p>Your banking instrument is issued and delivered according to the agreed terms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Find the Right Instrument for Your Business</h2>
+            <p>Contact our team of financial experts today to discuss which banking instrument best suits your trade finance needs.</p>
+            <a href="contact.html" class="btn">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Bristol Finance & Consortium Int. Ltd.</h2>
+                    <p>Your trusted partner in global trade finance solutions.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <a href="home.html">Home</a>
+                    <a href="services.html">Services</a>
+                    <a href="instruments.html">Instruments</a>
+                    <a href="monetizing.html">Monetizing</a>
+                    <a href="consultancy.html">Consultancy</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <a href="mailto:bristfin.consint@ghca.xyz">Email Us</a>
+                    <a href="https://wa.me/14379079615">WhatsApp</a>
+                    <p>Canada: 419-1475 Bristol Road West, Mississauga</p>
+                    <p>Ghana: GA-585-7449, Sorghum Street, Dansoman</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/bristol-finance-consortium-international-64889a214?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/BristolTrades?t=KxiVKNXPaQYU75Gx4ayygA&s=09"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/share/1JR6Hg9kQy/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/bristol_financeint?igsh=eHB5dGU5Y2pwbWIy"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@bristol.finance?_t=ZM-90WPmrqPecC&_r=1"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/14379079615"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Bristol Finance & Consortium Int. Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
