@@ -52,6 +52,7 @@
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            align-items: center;
         }
         
         .header-content {
@@ -138,18 +139,23 @@
             color: var(--white);
             padding: 5rem 0;
             text-align: center;
+            align-items: center;
         }
         
         .contact-hero h2 {
             font-size: 3rem;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            align-items: center;
+
         }
         
         .contact-hero p {
             font-size: 1.3rem;
             max-width: 800px;
             margin: 0 auto;
+            align-items: center;
+
         }
         
         .btn {
@@ -187,11 +193,21 @@
             background-color: var(--blue);
             color: var(--white);
         }
-        
+       
+
+
         /* Contact Section */
         .contact-section {
             padding: 5rem 0;
             background-color: var(--light-blue);
+           
+            
+        }
+
+        .contact-section .container{
+           align-items: center;
+           text-align: center;
+           flex-direction: row;
         }
         
         .section-title {
@@ -218,151 +234,225 @@
             background-color: var(--gold);
         }
         
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-        
-        .contact-info {
-            background-color: var(--white);
-            border-radius: 8px;
-            padding: 2.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--blue);
-        }
-        
-        .contact-details {
-            margin-bottom: 2rem;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-        
-        .contact-icon {
-            font-size: 1.5rem;
-            color: var(--gold);
-            margin-right: 1rem;
-            width: 30px;
-        }
-        
-        .contact-text h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
-            color: var(--blue);
-        }
-        
-        .contact-text p {
-            margin-bottom: 0.2rem;
-        }
-        
-        .contact-text a {
-            color: var(--blue);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .contact-text a:hover {
-            color: var(--gold);
-        }
-        
-        .social-contact {
-            margin-top: 2rem;
-        }
-        
-        .social-contact h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: var(--blue);
-        }
-        
-        .social-links-contact {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .social-links-contact a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background-color: var(--light-blue);
-            border-radius: 50%;
-            color: var(--blue);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .social-links-contact a:hover {
-            background-color: var(--gold);
-            color: var(--white);
-            transform: translateY(-3px);
-        }
-        
-        /* Contact Form */
-        .contact-form {
-            background-color: var(--white);
-            border-radius: 8px;
-            padding: 2.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .contact-form h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--blue);
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--blue);
-        }
-        
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--gold);
-            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
-        }
-        
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
+        /* Contact Section */
+.contact-section {
+    padding: 5rem 0;
+    background-color: var(--light-blue);
+}
+
+.contact-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--blue);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: var(--gold);
+}
+
+.contact-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.contact-info {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 2.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    max-width: 500px;
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--blue);
+    text-align: center;
+}
+
+.contact-details {
+    margin-bottom: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-right: 1rem;
+    width: 30px;
+    flex-shrink: 0;
+}
+
+.contact-text h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+    color: var(--blue);
+}
+
+.contact-text p {
+    margin-bottom: 0.2rem;
+}
+
+.contact-text a {
+    color: var(--blue);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-text a:hover {
+    color: var(--gold);
+}
+
+.social-contact {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.social-contact h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--blue);
+}
+
+.social-links-contact {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-links-contact a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: var(--light-blue);
+    border-radius: 50%;
+    color: var(--blue);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.social-links-contact a:hover {
+    background-color: var(--gold);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+/* Contact Form */
+.contact-form {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 2.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-form h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--blue);
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--blue);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-info,
+    .contact-form {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .social-links-contact {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
         
         /* Map Section */
         .map-section {
@@ -558,10 +648,12 @@
             
             .contact-content {
                 grid-template-columns: 1fr;
+
             }
             
             .contact-hero h2 {
                 font-size: 2.2rem;
+
             }
             
             .footer-content {
@@ -720,6 +812,7 @@
                 </div>
             </div>
         </div>
+         </div>
     </section>
 
     <!-- Map Section -->
@@ -760,6 +853,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </section>
 
     <!-- FAQ Section -->
@@ -819,17 +913,17 @@
                 <div class="footer-links">
                     <h3>Contact</h3>
                     <a href="mailto:bristfin.consint@ghca.xyz">Email Us</a>
-                    <a href="https://wa.me/14379079615">WhatsApp</a>
+                    <a href="https://wa.me/14379079615" target="_blank">WhatsApp</a>
                     <p>Canada: 419-1475 Bristol Road West, Mississauga</p>
                     <p>Ghana: GA-585-7449, Sorghum Street, Dansoman</p>
                 </div>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/bristol-finance-consortium-international-64889a214?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://x.com/BristolTrades?t=9pxc9M6NfmxQeHMHEmH9vQ&s=09"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.facebook.com/share/1JR6Hg9kQy/"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/bristol_financeint?igsh=eHB5dGU5Y2pwbWIy"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@bristol.finance?_t=ZM-90WPmrqPecC&_r=1"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://wa.me/14379079615"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/in/bristol-finance-consortium-international-64889a214?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/BristolTrades?t=9pxc9M6NfmxQeHMHEmH9vQ&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/share/1JR6Hg9kQy/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/bristol_financeint?igsh=eHB5dGU5Y2pwbWIy" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@bristol.finance?_t=ZM-90WPmrqPecC&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/14379079615" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="copyright">
